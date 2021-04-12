@@ -34,12 +34,21 @@ exports.get_shops_detail = async(req, res) => {
 
     try{
 
-			const shop = await models.Shops.findByPk(req.params.id);
-      res.render('admin/detail.html', { shop });  
-
-    }catch(e){
-        console.log(e)
-    }
+        const shop = await models.Shops.findOne({
+            where : {
+                id : req.params.id
+            },
+            include :[
+                'Menu'
+            ]
+        });
+     
+        res.render('admin/detail.html', { shop }); 
+   
+      }catch(e){
+          console.log(e)
+      }
+   
 
 
 }
@@ -107,6 +116,25 @@ exports.add_menu = async (res, req) => {
         // })
 
     }catch(e){
-
+        console.log(e)
     }
 }
+
+exports.remove_menu = async(req, res) => {
+
+    try{
+   
+      await models.ShopsMenu.destroy({
+          where: {
+              id: req.params.menu_id
+          }
+      });
+     
+      res.redirect('/admin/shops/detail/' + req.params.shop_id );
+   
+    }catch(e){
+   
+    }
+   
+   }
+   

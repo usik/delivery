@@ -23,6 +23,20 @@
             <hr />
 
                메뉴 작성하기
+               <ul>
+                {% for menu in shop.Menu %}
+                  <li>
+                    {{ menu.name }} / {{ menu.price }} 원
+                    (
+                      <a href="/admin/shops/delete/{{ shop.id }}/{{ menu.id }}"
+                          onclick="return confirm('삭제하시겠습니까?')">
+                          삭제
+                      </a>
+                    )
+                  </li>
+                {% endfor %}
+              </ul>
+
 
              <form action="" method="post">
                <div class="col-xs-3">

@@ -20,5 +20,5 @@ router.get('/shops/delete/:id', ctrl.get_shops_delete );
 router.post('/shops/detail/:id', ctrl.add_menu);
 
 //delete menu
-//router.get('/shops/delete/:shop_id/:menu_id', ctrl.remove_menu);
+router.get('/shops/delete/:shop_id/:menu_id', ctrl.remove_menu);
 module.exports = router;
