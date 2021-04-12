@@ -94,3 +94,19 @@ exports.get_shops_delete = async(req, res) => {
 
 }
 
+exports.add_menu = async (res, req) => {
+    try{
+
+        const shop = await models.Shops.findByPk(req.params.id);
+        await shop.createMenu(req.body); //as menu 로 가져와서 가능 
+        res.redirect('/admin/shops/detail/'+req.params.id);
+        // await models.ShopsMenu.create({
+        //     // name:req.body.name,
+        //     // price: req.body.price,
+        //     // shop_id:req.body.shop_id
+        // })
+
+    }catch(e){
+
+    }
+}
