@@ -13,18 +13,16 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
 
-    //menu model relation
-    Shops.associate = (models) => {
-        //메뉴 모델에 외부키를 건다
-        //onDelete 옵션의 경우 제품 하나가 삭제되면 외부키가 걸린 메모들도 싹다 삭제하기
+     // 메뉴 모델 관계도
+     Shops.associate = (models) => {
 
-        Shops.hasMany(models.ShopsMenu, {
-            as: 'Menu',
-            foreignKey: 'shop_id',
-            sourceKey: 'id',
-            onDelete: 'CASCADE'
-        });
-    }
+        // 메뉴 모델에 외부키를 건다
+        // onDelete 옵션의 경우 제품 하나가 삭제되면 외부키가 걸린 메모들도 싹다 삭제해준다
+        Shops.hasMany( models.ShopsMenu , 
+            { as: 'Menu' , foreignKey: 'shop_id', sourceKey: 'id' , onDelete: 'CASCADE' }
+        );
+
+     }
 
     Shops.prototype.dateFormat = (date) => (
         moment(date).format('YYYY-MM-DD')

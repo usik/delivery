@@ -1,5 +1,3 @@
-const moment = require('moment');
-
 module.exports = (sequelize, DataTypes) => {
     const ShopsMenu = sequelize.define('ShopsMenu',
         {
@@ -10,7 +8,6 @@ module.exports = (sequelize, DataTypes) => {
             tableName: 'ShopsMenu'
         }
     );
-   
+    
     return ShopsMenu;
-   }
-   
+}
