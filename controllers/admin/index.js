@@ -2,6 +2,9 @@ const { Router } = require('express');
 const router = Router();
 const ctrl = require('./admin.ctrl');
 
+const path = require('path');
+const uploadDir = path.join(__dirname, '../../uploads'); // __dirname : current folder
+
 router.get('/shops', ctrl.get_shops );
 
 router.get('/shops/write', ctrl.get_shops_write );
