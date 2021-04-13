@@ -1,1 +1,7 @@
-# 패캠이츠 코드
+# delivery app prototype.
+
+##PREreqs
+
+##INSTALLATION
+
+##UP AND RUNNING
