@@ -44,7 +44,7 @@ class App {
         db.sequelize.authenticate()
         .then(() => {
             console.log('Connection has been established successfully.');
-            return db.sequelize.sync();
+            return db.sequelize.sync(); //drop 후 sync해야 db가 update됨. 그럼 기존 데이터는?
         })
         .then(() => {
             console.log('DB Sync complete.');
