@@ -2,21 +2,25 @@ const { Router } = require('express');
 const router = Router();
 const ctrl = require('./admin.ctrl');
 
+//csrf setting
+const csrfProtection = require('../../middleware/csrf');
+
 const upload = require('../../middleware/multer');
 
 router.get('/shops', ctrl.get_shops );
 
-router.get('/shops/write', ctrl.get_shops_write );
+router.get('/shops/write', csrfProtection, ctrl.get_shops_write );
 
-router.post('/shops/write', upload.single('thumbnail'), ctrl.post_shops_write);
+//multer 이후에 csrfProtection을 넘겨주기
+router.post('/shops/write', upload.single('thumbnail'), csrfProtection, ctrl.post_shops_write);
 
 router.post('/shops/write', ctrl.post_shops_write );
 
 router.get('/shops/detail/:id', ctrl.get_shops_detail );
 
-router.get('/shops/edit/:id', ctrl.get_shops_edit );
+router.get('/shops/edit/:id', csrfProtection, ctrl.get_shops_edit );
 
-router.post('/shops/edit/:id', upload.single('thumbnail'), ctrl.post_shops_edit );
+router.post('/shops/edit/:id', upload.single('thumbnail'),csrfProtection, ctrl.post_shops_edit );
 
 router.get('/shops/delete/:id', ctrl.get_shops_delete );
 
