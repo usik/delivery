@@ -7,6 +7,14 @@ const cookieParser = require('cookie-parser');
 // db 관련
 const db = require('./models');
 
+//flash message 관련
+const flash = require('connect-flash');
+
+//login passport 관련
+const passport = require('passport');
+const session = require('express-session');
+
+
 
 class App {
 
@@ -18,6 +26,9 @@ class App {
         
         // 뷰엔진 셋팅
         this.setViewEngine();
+
+        //session 셋팅
+        this.setSession();
 
         // 미들웨어 셋팅
         this.setMiddleWare();
@@ -73,6 +84,24 @@ class App {
             express: this.app
         });
 
+    }
+
+    setSession(){
+        this.app.use(session({
+            secret:'goTerps',
+            resave:false,
+            saveUninitialized:true,
+            cookie:{
+                maxAge:2000*60*60 // duration 2 hrs
+            }
+        }));
+        
+        //passport 적용
+        this.app.use(passport.initialize());
+        this.app.use(passport.session());
+
+        //flash message
+        this.app.use(flash());
     }
 
 
