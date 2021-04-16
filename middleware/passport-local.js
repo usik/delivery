@@ -3,6 +3,13 @@ const LocalStrategy = require('passport-local').Strategy;
 const passwordHash = require('../helpers/passwordHash');
 const models = require('../models');
 
+
+/*
+passport 작성 3단계
+1. 정책작성
+2. serialize
+3. deserialize
+*/
 passport.use(new LocalStrategy({
  usernameField: 'username',
  passwordField : 'password',
@@ -16,7 +23,7 @@ async ( req , username , password, done) => {
          username,
          password : passwordHash(password),
      },
-     // attributes: { exclude: ['password'] }
+      attributes: { exclude: ['password'] }
  });
 
 
