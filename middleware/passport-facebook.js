@@ -17,12 +17,12 @@ passport.use(new FacebookStrategy({
    async (  accessToken , refreshToken , profile, done) => {
       
        //아래 하나씩 찍어보면서 데이터를 참고해주세요.
-       //console.log(accessToken);
-       //console.log(profile);
-       //console.log(profile.displayName);
-       //console.log(profile.emails[0].value);
-       //console.log(profile._raw);
-       //console.log(profile._json);
+       console.log(accessToken);
+       console.log(profile);
+       console.log(profile.displayName);
+       console.log(profile.emails[0].value);
+       console.log(profile._raw);
+       console.log(profile._json);
       
        try{
            const username =`fb_${profile.id}`;
