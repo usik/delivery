@@ -8,7 +8,7 @@
   padding: 8px 0;
 }
 .header .logo {
-  background: url("../images/logo_symbol.png") no-repeat left center;
+  background: url("/static/images/logo_symbol.png") no-repeat left center;
   background-size: 32px 24px;
   padding-left: 40px;
 }
@@ -157,7 +157,7 @@
   position: relative;
   padding-top: 62%;
   margin-bottom: 2.4rem;
-  background-image: url("../images/search_bg.jpg");
+  background-image: url("/static/images/search_bg.jpg");
   background-size: cover;
 }
 .main .search > div {
@@ -214,7 +214,7 @@
   margin-top: 1.6rem;
   margin-bottom: 1.6rem;
   padding-top: 50%;
-  background-image: url("../images/map.png");
+  background-image: url("/static/images/map.png");
   background-size: cover;
   background-position: center;
   border: 1px solid #ddd;
@@ -236,7 +236,7 @@
   width: 40px;
   height: 46px;
   padding-top: 46px;
-  background-image: url("../images/icon_pointer.png");
+  background-image: url("/static/images/icon_pointer.png");
   background-repeat: no-repeat;
 }
 .main .map-area .user-pointer,
@@ -302,7 +302,7 @@
   position: relative;
   margin-bottom: 2.4rem;
   padding-top: 53%;
-  background-image: url("../images/thumb.jpg");
+  background-image: url("/static/images/thumb.jpg");
   background-size: cover;
   overflow: hidden;
   border-top: 1px solid #999;
