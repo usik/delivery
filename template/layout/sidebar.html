@@ -1,9 +1,16 @@
 <!-- snb -->
-<div class="container snb logout hidden" id="snbLayer">
+<div class="container snb hidden 
+{% if isLogin %} login {% else %} logout {% endif %}" id="snbLayer">
  <div class="row">
    <div class="col-xs-9 col-xs-offset-3 snb-bg">
      <div class="snb-title">
-       <h2 class="sub-title1">로그인 하세요.</h2>
+       <h2 class="sub-title1">
+       {% if not isLogin%}
+       로그인 하세요.
+       {% else %}
+        {{currentUser.displayname}} 님 반갑습니다.
+        {% endif %}
+       </h2>
        <button type="button" class="btn btn-closed" id="closeSnb">
          <i class="fa fa-times" aria-hidden="true"></i>
          <span class="a11y-hidden">닫기</span>

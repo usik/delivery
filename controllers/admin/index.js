@@ -6,8 +6,12 @@ const ctrl = require('./admin.ctrl');
 const csrfProtection = require('../../middleware/csrf');
 
 const upload = require('../../middleware/multer');
+const loginRequired = require('../../middleware/loginRequired');
+
 
 router.get('/shops', ctrl.get_shops );
+
+router.use(loginRequired);
 
 router.get('/shops/write', csrfProtection, ctrl.get_shops_write );
 

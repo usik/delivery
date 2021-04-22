@@ -21,7 +21,7 @@ exports.get_login = (req, res)=>{
 
 exports.post_login = (_, res)=>{
     res.send('<script>alert("login successful");\
-    location.href = "/accounts/success";</script>');
+    location.href = "/";</script>');
 }
 
 exports.get_success = ( req ,res ) => {
