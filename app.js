@@ -87,14 +87,21 @@ class App {
     }
 
     setSession(){
-        this.app.use(session({
+        //chat session 만들기위해 db session 추가
+        const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+        this.app.sessionMiddleWare = session({
             secret:'goTerps',
             resave:false,
             saveUninitialized:true,
             cookie:{
                 maxAge:2000*60*60 // duration 2 hrs
-            }
-        }));
+            },
+            store: new SequelizeStore({
+                db: db.sequelize,
+            }),
+        });
+        this.app.use(this.app.sessionMiddleWare);
         
         //passport 적용
         this.app.use(passport.initialize());

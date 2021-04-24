@@ -51,9 +51,24 @@
 <script src="/socket.io/socket.io.js"></script>  
 <script>
 var socket = io();
+function updateUserList(userList){
+    $('#userList').html("");
+    for(var key in userList){
+        $('#userList').append('<li>' + userList[key] + '</li>');
+    }
+}
 
+socket.on('join', function(data){
+    updateUserList(data);
+});
+
+socket.on('leave', function(data){
+    updateUserList(data);
+});
+
+//사용자명 받아와서 ui에 뿌려주기
 socket.on('server message', function(data){
-    $('#chatBody').append('<li>' + data + '</li>');
+    $('#chatBody').append('<li>' + '<strong>'+ data.displayname+ '</strong>' +data.message + '</li>');
 });
 
 $(document).ready(function() {
