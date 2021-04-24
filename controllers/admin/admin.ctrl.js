@@ -16,7 +16,7 @@ exports.get_shops = async ( _ , res ) => {
 
 exports.get_shops_write = ( req , res ) => {
     //csrf token to template
-  res.render( 'admin/form.html' , {csrfToken:req.csrfToken()} );
+  res.render( 'admin/form.html' , {csrfToken : req.csrfToken() } );
 }
 
 exports.post_shops_write = async (req,res) => {
