@@ -20,5 +20,11 @@ router.get('/facebook/success', (req,res) => {
     res.send('facebook login fail');
  });
  
+//Kakao
+
+//Naver
+
+//Google
+
  module.exports = router;
  
