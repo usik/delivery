@@ -16,6 +16,10 @@ exports.get_shops_detail = async (req, res) => {
         cartList = JSON.parse(unescape(req.cookies.cartList));
         //since cartList is literal instead of an array, Object.keys need to be used
         cartLength = Object.keys(cartList).length;
+
+        for( let key in cartList){
+            if(cartList[key].shop_id !== parseInt(req.params.id) )sameShops = false;
+        }
     }
         res.render('shops/detail.html', {shop, cartLength, sameShops});
     }catch(e){
