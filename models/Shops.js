@@ -23,6 +23,15 @@ module.exports = (sequelize, DataTypes) => {
             { as: 'Menu' , foreignKey: 'shop_id', sourceKey: 'id' , onDelete: 'CASCADE' }
         );
 
+        Shops.hasOne(models.Checkout, 
+            {
+                as: 'Checkout',
+                foreignKey: 'shop_id',
+                sourceKey: 'id',
+                onDelete: 'CASCADE'
+            }
+        );
+
      }
 
     Shops.prototype.dateFormat = (date) => (
