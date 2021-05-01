@@ -36,6 +36,11 @@ module.exports = function(sequelize, DataTypes){
            constraints: false
        });
 
+       Checkout.belongsTo(
+        models.Shops, 
+        { as :'Shop',  foreignKey: 'shop_id', targetKey: 'id'} 
+    );
+
    };
 
 
