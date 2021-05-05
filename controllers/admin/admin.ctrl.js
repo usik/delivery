@@ -1,4 +1,4 @@
-const models = require('../../models.old');
+const models = require('../../models');
 
 exports.get_shops = async ( _ , res ) => {
 

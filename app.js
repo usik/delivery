@@ -126,6 +126,16 @@ class App {
             // current user status
             this.app.locals.currentUser = req.user;
             this.app.locals.req_path = req.path;
+
+            // KakaoMap
+
+            this.app.locals.map_api = {
+                KAKAO_JAVASCRIPT_KEY : process.env.KAKAO_JAVASCRIPT_KEY,
+                default:{
+                    lat: process.env.DEFAULT_LATITUDE,
+                    lng: process.env.DEFAULT_LONGITUDE
+                }
+            }
             next();
         });
 
