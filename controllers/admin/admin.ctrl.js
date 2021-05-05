@@ -1,4 +1,4 @@
-const models = require('../../models');
+const models = require('../../models.old');
 
 exports.get_shops = async ( _ , res ) => {
 
@@ -164,6 +164,6 @@ exports.get_order_edit = async(req, res)=>{
         });
         res.render('admin/order_edit.html', {checkout});
     }catch (e){
-        
+
     }
 }
