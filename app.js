@@ -126,6 +126,7 @@ class App {
             // current user status
             this.app.locals.currentUser = req.user;
             this.app.locals.req_path = req.path;
+            this.app.locals.req_query = req.query;
 
             // KakaoMap
 

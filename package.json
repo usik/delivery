@@ -26,6 +26,7 @@
     "passport-facebook": "^3.0.0",
     "passport-local": "^1.0.0",
     "sequelize": "^6.6.2",
-    "socket.io": "^4.0.1"
+    "socket.io": "^4.0.1",
+    "terraformer-wkt-parser": "^1.2.1"
   }
 }

@@ -22,6 +22,15 @@ exports.get_shops_write = ( req , res ) => {
 exports.post_shops_write = async (req,res) => {
 
     try{
+
+        //saving geo location
+        req.body.geo = {
+            type: 'Point',
+            coordinates: [
+                req.body.geo.split(',')[0],
+                req.body.geo.split(',')[1]
+            ]
+        };
 		req.body.thumbnail = (req.file) ? req.file.filename : "";
 				await models.Shops.create(req.body);
         res.redirect('/admin/shops');
@@ -77,6 +86,15 @@ exports.post_shops_edit = async(req, res) => {
     const uploadDir = path.join(__dirname, '../../uploads');
 
     try{
+
+        //saving lng lat 
+        req.body.geo={
+            type:'Point',
+            coordinates:[
+                req.body.geo.split(',')[0],
+                req.body.geo.split(',')[1]
+            ]
+        };
         const shop = await models.Shops.findByPk(req.params.id);
         if(req.file && shop.thumbnail){
             //if the same file , thumnail exists

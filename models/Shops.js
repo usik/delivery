@@ -32,6 +32,17 @@ module.exports = (sequelize, DataTypes) => {
                 onDelete: 'CASCADE'
             }
         );
+        // favorite function
+        Shops.belongsToMany(models.User,{
+            through: {
+                model: 'LikesShops',
+                unique:false
+            },
+            as: 'LikeUser',
+            foreignKey:'shop_id',
+            sourceKey:'id',
+            constraints:false
+        });
 
      }
 
