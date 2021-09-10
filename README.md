@@ -1,3 +1,9 @@
+# Personal Side project
+
+## As a machine learning engineer, I wanted to challenge myself to develop a webapp for fun.
+## It is good enough as a skeletal project but it is not completely done because I found no use of it as of now...
+
+
 # Store app prototype.
 
 ##Pre-reqs
